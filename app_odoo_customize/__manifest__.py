@@ -23,10 +23,10 @@
 
 {
     'name': 'odoo 14,13 Customize OEM(Boost, Data reset)',
-    'version': '14.21.03.31',
-    'author': 'Sunpop.cn',
+    'version': '14.21.04.01',
+    'author': 'Sunpop.cn','GetapPRO',
     'category': 'Productivity',
-    'website': 'https://www.sunpop.cn',
+    'website': 'https://www.getap.pro',
     'license': 'LGPL-3',
     'sequence': 2,
     'summary': """
