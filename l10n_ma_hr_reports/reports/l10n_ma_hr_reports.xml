@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report
+            id="employee_attest_travail"
+            model="hr.employee"
+            string="Attestation de Travail"
+            report_type="qweb-pdf"
+            groups="hr.group_hr_user"
+            name="l10n_ma_hr_reports.report_attest_travail"
+            file="l10n_ma_hr_reports.report_attest_travail"/>
+</odoo>
