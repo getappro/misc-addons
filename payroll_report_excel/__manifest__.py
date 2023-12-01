@@ -7,7 +7,9 @@
     'description': "It shows payroll report in excel for given month",
     'author':'aswathy',
     'depends': ['base','hr', 'hr_payroll_community'],
-    'data': ['wizard/payroll_report_wiz.xml'
+    'data': [
+        'wizard/payroll_report_wiz.xml',
+        'security/ir.model.access.csv',
       ],
     'installable': True,
     'auto_install': False,
