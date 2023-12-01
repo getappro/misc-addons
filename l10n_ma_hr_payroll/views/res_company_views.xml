@@ -10,8 +10,9 @@
                     <page string="Moroccan Payroll">
                         <group>
                             <group>
-                                <field name="cnss_num" string="CNSS affiliation number"/>
+                                <field name="company_cnss_id" string="CNSS affiliation ID"/>
                                 <field name="cnss_limit" string="CNSS Base Salary Limit"/>
+                                <field name="company_cimr_id" string="CIMR affiliation ID"/>
                             </group>
                             <group>
                                 <field name="employee_nbre" string="Number of employees"/>

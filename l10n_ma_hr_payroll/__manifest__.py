@@ -22,13 +22,13 @@
 {
     'name': 'Moroccan Payroll',
     'summary': 'Moroccan Payroll for odoo 16',
-    'version': '16.0.0.0.0',
+    'version': '16.0.2.0.0',
     'category': 'Human Resources',
     'author':'GetapPRO',
     'maintainer': 'GetapPRO',
     'website': 'http://www.getap.pro',
     'license': 'AGPL-3',
-    'depends': ['hr','hr_payroll_community'],
+    'depends': ['base', 'hr','hr_payroll_community'],
     'data': [
         'views/l10n_ma_hr_payroll_views.xml',
         'views/res_company_views.xml',

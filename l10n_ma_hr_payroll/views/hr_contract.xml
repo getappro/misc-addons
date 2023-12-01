@@ -10,8 +10,11 @@
                     <xpath expr="//field[@name='date_end']" position="after">
                         <field name="worked_age"/>
                     </xpath>
-                    <xpath expr="//group[@name='allowances']" position="replace">
-                        <group string="Primes et indémnités Non Taxables" name="primes">
+                    <xpath expr="//group[@name='allowances']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+                    <xpath expr="//group[@name='salary_info']" position="after">
+                        <group string="Primes et indémnités Non Taxables" name="primesntax">
                             <group>
                                 <label for="indem_deplace"/>
                                 <div class="o_row">
@@ -68,6 +71,15 @@
                                 <label for="indem_lice"/>
                                 <div class="o_row">
                                     <field name="indem_lice" nolabel="1"/>
+                                    <span>/ mois</span>
+                                </div>
+                            </group>
+                        </group>
+                        <group string="Primes et Indémnités Taxables" name="primetax">
+                            <group>
+                                <label for="prim_excep"/>
+                                <div class="o_row">
+                                    <field name="prim_excep" nolabel="1"/>
                                     <span>/ mois</span>
                                 </div>
                             </group>

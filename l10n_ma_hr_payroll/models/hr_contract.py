@@ -59,6 +59,10 @@ class hr_contract(models.Model):
         string="Indemnité de licenciement",
         help="Cette indemnité est exonérée dans les limites fixées par le Code Général des Impôts"
     )
+    prim_excep = fields.Monetary(
+        string="Prime Exceptionnelle",
+        help="Utiliser ce champ si la prime exceptionnelle doit être définit en permanence "
+    )
     worked_age = fields.Char(
         string='Ancienneté',
         group='hr.group_hr_user',

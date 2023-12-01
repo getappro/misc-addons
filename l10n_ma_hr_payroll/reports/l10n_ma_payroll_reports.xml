@@ -15,4 +15,12 @@
             name="l10n_ma_hr_payroll.report_payrolladvice"
             file="l10n_ma_hr_payroll.report_payrolladvice"/>
 
+     <report
+            id="action_livre_paie_report"
+            model="livre.paie"
+            string="Print Livre de Paie"
+            report_type="qweb-pdf"
+            name="l10n_ma_hr_payroll.report_livre_paie"
+            file="l10n_ma_hr_payroll.report_livre_paie"/>
+
 </odoo>

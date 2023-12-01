@@ -29,7 +29,6 @@ class PayslipParser(models.AbstractModel):
                 category_total += line.total
         return category_total
 
-
     def get_employer_line(self, obj, parent_line):
         return self.env['hr.payslip.line'].search([('slip_id', '=', obj.id), ('salary_rule_id.parent_rule_id.id', '=', parent_line.salary_rule_id.id)], limit=1)
 

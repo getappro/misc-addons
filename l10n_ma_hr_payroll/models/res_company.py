@@ -9,9 +9,9 @@ class res_company(models.Model):
     _inherit = 'res.company'
     _description='Add fields for moroccan payroll'
 
-    cnss_num = fields.Char(
+    company_cnss_id = fields.Char(
         string="CNSS affiliation number",
-        help="If the company is affiliated with the CNSS, include the CNSS number. This completed field triggers the CNSS calculation rules in the pay slips.",
+        help="If the company is affiliated with the CNSS, include the CNSS number.",
         copy=False,
         required=False
     )
@@ -26,6 +26,12 @@ class res_company(models.Model):
         copy=False,
         readonly=True,
         compute="_get_count_employee"
+    )
+    company_cimr_id = fields.Char(
+        string="CIMR affiliation number",
+        help="If the company is affiliated with the CIMR, include the CIMR number.",
+        copy=False,
+        required=False
     )
 
     def _get_count_employee(self):
