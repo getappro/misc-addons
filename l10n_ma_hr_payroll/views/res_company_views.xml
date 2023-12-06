@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_company_inherited_ma_payroll" model="ir.ui.view">
+            <field name="name">Moroccan Payroll</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <notebook>
+                    <page string="Moroccan Payroll">
+                        <group>
+                            <group>
+                                <field name="company_cnss_id" string="CNSS affiliation ID"/>
+                                <field name="cnss_limit" string="CNSS Base Salary Limit"/>
+                                <field name="company_cimr_id" string="CIMR affiliation ID"/>
+                            </group>
+                            <group>
+                                <field name="employee_nbre" string="Number of employees"/>
+
+                            </group>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</odoo>
