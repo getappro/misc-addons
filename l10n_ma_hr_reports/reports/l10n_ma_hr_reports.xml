@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report
+            id="employee_attest_travail"
+            model="hr.employee"
+            string="Attestation de Travail"
+            report_type="qweb-pdf"
+            groups="hr.group_hr_user"
+            name="l10n_ma_hr_reports.report_attest_travail"
+            file="l10n_ma_hr_reports.report_attest_travail"/>
+    <report
+            id="employee_attest_salaire"
+            model="hr.employee"
+            string="Attestation de Salaire"
+            report_type="qweb-pdf"
+            groups="hr.group_hr_user"
+            name="l10n_ma_hr_reports.report_attest_salaire"
+            file="l10n_ma_hr_reports.report_attest_salaire"/>
+     <report
+            id="employee_attest_trav_sal"
+            model="hr.employee"
+            string="Attestation de Travail et Salaire"
+            report_type="qweb-pdf"
+            groups="hr.group_hr_user"
+            name="l10n_ma_hr_reports.report_attest_trav_sal"
+            file="l10n_ma_hr_reports.report_attest_trav_sal"/>
+</odoo>
