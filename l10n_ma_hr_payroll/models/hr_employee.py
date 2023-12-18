@@ -31,4 +31,8 @@ class hr_employee(models.Model):
     dependents = fields.Integer(
         string='Number of Dependent',
     )
+    sejour = fields.Char(
+        string='Carte de Séjour',
+        required=False
+    )
 

@@ -17,6 +17,9 @@
                      <xpath expr="//field[@name='children']" position="after">
                          <field name="dependents"/>
                      </xpath>
+                    <xpath expr="//field[@name='passport_id']" position="after">
+                         <field name="sejour"/>
+                     </xpath>
                 </data>
             </field>
         </record>
