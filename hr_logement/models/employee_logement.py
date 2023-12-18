@@ -41,8 +41,8 @@ class EmployeeLogement(models.Model):
                                  default=lambda self: self.env.user.company_id)
 
 
-class HrLogement(models.Model):
-    _inherit = 'hr.employee'
+class HrContract(models.Model):
+    _inherit = 'hr.contract'
 
     logement = fields.One2many('hr.logement', 'employee_id', string="Interêt Logement Principal")
 
