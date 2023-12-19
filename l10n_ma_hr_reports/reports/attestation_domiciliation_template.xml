@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="report_attest_trav_sal">
+    <template id="report_domic_sal">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
                 <t t-call="web.external_layout">
@@ -26,24 +26,21 @@
                     <div class="page">
                         <div class="container">
                             <div style="text-align: right; padding: 30px 10px;">
-                                <span t-field="o.company_id.city"/>, le
+                              <span t-field="o.company_id.city"/>, le
                                     <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
-
                             </div>
-                            <h1 class="header">ATTESTATION DE TRAVAIL ET SALAIRE</h1>
+                            <h1 class="header">ATTESTATION DE DOMICILIATION IRRÉVOCABLE DE SALAIRE</h1>
                             <div>
-                                <p>Nous soussignés, Société <span t-field="o.company_id"/> sise à<span t-field="o.company_id.city"/>, <span t-field="o.company_id.street"/>
-                                    <span t-field="o.company_id.street2"/> attestons par la présente que : Mr/Mme<span t-field="o.name"/>, né(e) le
-                                    <span t-field="o.birthday"/> à <span t-field="o.place_of_birth"/>, immatriculé à la CNSS sous le N°
-                                    <span t-field="o.mat_cnss"/> exerce au sein de notre société depuis le <span t-field="o.joining_date"/>
-                                    et occupe actuellement la fonction de <span t-field="o.job_id"/>.
-                                </p>
-                                <p>Mr/Mme <span t-field="o.name"/> est rémunéré(e) actuellement à hauteur de <span t-field="o.contract_id.wage_net"/> Dhs net par mois.</p>
-                                <p>En foi de quoi, la présente attestation est délivrée, sur demande de l'intéressé pour servir et valoir ce que de droit.
-                                </p>
+                                <p>Nous soussignés Société <span t-field="o.company_id"/>, atteste que :</p>
+                                <p><span t-field="o.name"/> fait partie de notre personnel du <span t-field="o.joining_date"/> à ce jour, en qualité de <span t-field="o.job_id"/></p>
+                                <p>Et perçoit un salaire de <span t-field="o.contract_id.wage_net"/> DHs</p>
+                                <p>A sa demande nous nous engageons à virer tous ses émoluments (y compris le solde de tout compte) à son compte ouvert chez la banque <span t-field="o.bank_account_id.bank_id"/> de : </p>
+                                <p>Compte N° <span t-field="o.bank_account_id.acc_number"/> à partir de la fin de mois.</p>
+                                <p>Cette domiciliation irrévocable ne pourra être annulée que par la main levée expresse délivrée par la Banque Populaire.</p>
+                                <p>En cas de démission de révocation de l’intéressé. La banque en sera informée immédiatement Par lettre expresse.</p>
                             </div>
                             <div style="text-align: right; padding: 50px 10px;">
-                                Direction des Ressources Humaines
+                                Direction Générale
                             </div>
                         </div>
                     </div>

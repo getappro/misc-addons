@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="report_attest_salaire">
-        <t t-call="web.html_container">
+         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
                 <t t-call="web.external_layout">
                     <style>
@@ -19,13 +19,15 @@
                         text-align: center;
                         padding-bottom: 40px;
                         }
+                        p {
+                        text-align: justify;
+                        }
                     </style>
                     <div class="page">
                         <div class="container">
                             <div style="text-align: right; padding: 30px 10px;">
-                                <p><span t-field="o.company_id.city"/>, le
+                                <span t-field="o.company_id.city"/>, le
                                     <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
-                                </p>
                             </div>
                             <h1 class="header">ATTESTATION DE SALAIRE</h1>
                             <div>
@@ -40,7 +42,7 @@
                                 </p>
                             </div>
                             <div style="text-align: right; padding: 50px 10px;">
-                                <p>Direction des Ressources Humaines</p>
+                               Direction des Ressources Humaines
                             </div>
                         </div>
                     </div>

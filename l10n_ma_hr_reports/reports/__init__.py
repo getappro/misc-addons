@@ -21,3 +21,5 @@
 ##############################################################################
 from . import report_attest_travail
 from . import report_attest_salaire
+from . import report_attest_domiciliation
+from . import report_resign_accept
