@@ -1,4 +1,4 @@
-id,name,sequence,channel_id/id,is_category,is_published,is_preview,slide_type,url
+id,name,sequence,channel_id/id,is_category,is_published,is_preview,slide_category,url
 com_slide_section_crm_0,CRM,0,odoo_functional_tutorial_com.slide_channel_odoo_functional_com,1,1,0,document,
 com_slide_section_crm_1,CRM Overview,1,odoo_functional_tutorial_com.slide_channel_odoo_functional_com,0,1,1,video,https://youtu.be/pdfzH-yEET8
 com_slide_section_crm_2,"How to create Leads, and what are the Lead creation types?",2,odoo_functional_tutorial_com.slide_channel_odoo_functional_com,0,1,1,video,https://youtu.be/vjfOgtN4Epk
