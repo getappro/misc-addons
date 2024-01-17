@@ -9,12 +9,12 @@
         Odoo functional video presentation of all Application:
     """,
 
-    'author': 'Cybrosys Techno Solutions',
-    'company': 'Cybrosys Techno Solutions',
-    'website': 'https://www.cybrosys.com',
+    'author': 'GetapPRO',
+    'company': 'GetapPRO',
+    'website': 'https://www.getap.pro',
     # 'live_test_url': '',
     'category': 'Extra Tools',
-    'version': '14.0.1.0.0',
+    'version': '16.0.1.0.0',
     'license': 'AGPL-3',
     'depends': ['website_slides'],
     'images': ['static/description/banner.png'],
