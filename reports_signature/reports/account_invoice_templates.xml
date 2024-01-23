@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_invoice_document" inherit_id="account.report_invoice_document">
+         <xpath expr="//div[@t-field='o.invoice_payment_term_id.note']/.." position="after">
+          <t t-if="o.signature">
+            <div class="col-6">
+                                <img t-if="o.company_id.signature_image" t-att-src="image_data_uri(o.company_id.signature_image)" style="position:absolute;height:200px; width:300px; opacity: 1;"/>
+            </div>
+          </t>
+        </xpath>
+    </template>
+</odoo>

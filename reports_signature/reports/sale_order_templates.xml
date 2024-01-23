@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_saleorder_document" inherit_id="sale.report_saleorder_document">
+         <xpath expr="//p[@t-field='doc.note']/.." position="after">
+          <t t-if="doc.company_sign">
+            <div class="col-6">
+                <img t-if="doc.company_id.signature_image" t-att-src="image_data_uri(doc.company_id.signature_image)" style="position:absolute;height:200px; width:300px; opacity: 1;"/>
+            </div>
+          </t>
+        </xpath>
+    </template>
+</odoo>
