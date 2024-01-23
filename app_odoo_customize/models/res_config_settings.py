@@ -12,7 +12,7 @@ class ResConfigSettings(models.TransientModel):
     _inherit = 'res.config.settings'
 
     app_system_name = fields.Char('System Name', help="Setup System Name,which replace Odoo",
-                                  default='odooAi', config_parameter='app_system_name')
+                                  default='GetapERP', config_parameter='app_system_name')
     app_show_lang = fields.Boolean('Show Quick Language Switcher',
                                    help="When enable,User can quick switch language in user menu",
                                    config_parameter='app_show_lang')
@@ -65,12 +65,12 @@ class ResConfigSettings(models.TransientModel):
     module_app_chatgpt = fields.Boolean("Ai Center", help='Use Ai to boost you business.')
     
     # 应用帮助文档
-    app_doc_root_url = fields.Char('Help of topic domain', config_parameter='app_doc_root_url', default='https://odooai.cn')
+    app_doc_root_url = fields.Char('Help of topic domain', config_parameter='app_doc_root_url', default='https://getap.pro')
 
     @api.model
     def set_module_url(self, rec=None):
         config_parameter = self.env['ir.config_parameter'].sudo()
-        app_enterprise_url = config_parameter.get_param('app_enterprise_url', 'https://www.odooai.cn')
+        app_enterprise_url = config_parameter.get_param('app_enterprise_url', 'https://www.getap.pro')
         sql = "UPDATE ir_module_module SET website = '%s' WHERE license like '%s' and website <> ''" % (app_enterprise_url, 'OEEL%')
         try:
             self._cr.execute(sql)
