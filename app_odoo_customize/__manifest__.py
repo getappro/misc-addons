@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-
-
-# https://www.getap.pro
-# description:
-
 {
     'name': 'odoo16 Tweak,Ai Employee,Boost,Customize All in One. Customize,UI,Boost,Security,Data',
     'version': '16.24.01.15',
