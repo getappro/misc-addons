@@ -116,4 +116,5 @@
     This module can help to white label the Odoo.
     Also helpful for training and support for your odoo end-user.
     The user can get the help document just by one click.
+    """,
 }
