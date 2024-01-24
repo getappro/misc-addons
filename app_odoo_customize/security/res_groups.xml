@@ -13,7 +13,7 @@
         <!--1 默认显示快速升级-->
         <record id="base.group_user" model="res.groups">
             <field name="implied_ids"
-                   eval="[(4, ref('odoo_customize.group_show_quick_upgrade'))]"/>
+                   eval="[(4, ref('app_odoo_customize.group_show_quick_upgrade'))]"/>
         </record>
     </data>
 </openerp>
