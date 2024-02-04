@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="report_attest_trav_sal">
+    <template id="report_attest_titul">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
                 <t t-call="web.external_layout">
@@ -30,17 +30,15 @@
                                     <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
 
                             </div>
-                            <h1 class="header">ATTESTATION DE TRAVAIL ET SALAIRE</h1>
+                            <h1 class="header">ATTESTATION DE TITULARISATION</h1>
                             <div>
                                 <p>Nous soussignés, Société <span t-field="o.company_id"/> sise à <span t-field="o.company_id.city"/>, <span t-field="o.company_id.street"/>
-                                    <span t-field="o.company_id.street2"/> attestons par la présente que : <span t-field="o.name"/>, né(e) le
-                                    <span t-field="o.birthday"/> à <span t-field="o.place_of_birth"/>, immatriculé à la CNSS sous le N°
-                                    <span t-field="o.mat_cnss"/> exerce au sein de notre société depuis le <span t-field="o.joining_date"/>
-                                    et occupe actuellement la fonction de <span t-field="o.job_id"/>.
+                                    <span t-field="o.company_id.street2"/> attestons par la présente que : <span t-field="o.name"/>, immatriculé à la CNSS sous le N°
+                                    <span t-field="o.mat_cnss"/> et demeurant à <span t-field="o.address_home_id.street"/> <span t-field="o.address_home_id.street2"/> <span t-field="o.address_home_id.zip"/>, <span t-field="o.address_home_id.city"/> est employé(e) au sein de notre entreprise en qualité de <span t-field="o.job_id"/>
+                                    à temps plein depuis le <span t-field="o.joining_date"/> à ce jour, au titre d’un contrat à durée indéterminée.
                                 </p>
-                                <p><span t-field="o.name"/> est rémunéré(e) actuellement à hauteur de <span t-field="o.contract_id.wage_net"/> Dhs net par mois.</p>
-                                <p>En foi de quoi, la présente attestation est délivrée, sur demande de l'intéressé pour servir et valoir ce que de droit.
-                                </p>
+                                <p>De plus, nous attestons que <span t-field="o.name"/> n’est ni en période d’essai, ni en préavis, ni concernée par une démission. Elle a été titularisée dans notre entreprise à compter du <span t-field="o.joining_date"/></p>
+                                <p>La présente attestation lui est délivrée à sa demande pour servir et valoir ce que de droit.</p>
                             </div>
                             <div style="text-align: right; padding: 50px 10px;">
                                 Direction des Ressources Humaines

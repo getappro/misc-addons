@@ -31,10 +31,10 @@
                             </div>
                             <h1 class="header">ATTESTATION DE DOMICILIATION IRRÉVOCABLE DE SALAIRE</h1>
                             <div>
-                                <p>Nous soussignés Société <span t-field="o.company_id"/>, atteste que :</p>
+                                <p>Nous soussignés Société <span t-field="o.company_id"/>, atteste que:</p>
                                 <p><span t-field="o.name"/> fait partie de notre personnel du <span t-field="o.joining_date"/> à ce jour, en qualité de <span t-field="o.job_id"/></p>
                                 <p>Et perçoit un salaire de <span t-field="o.contract_id.wage_net"/> DHs</p>
-                                <p>A sa demande nous nous engageons à virer tous ses émoluments (y compris le solde de tout compte) à son compte ouvert chez la banque <span t-field="o.bank_account_id.bank_id"/> de : </p>
+                                <p>A sa demande nous nous engageons à virer tous ses émoluments (y compris le solde de tout compte) à son compte ouvert chez la banque <span t-field="o.bank_account_id.bank_id"/> de: </p>
                                 <p>Compte N° <span t-field="o.bank_account_id.acc_number"/> à partir de la fin de mois.</p>
                                 <p>Cette domiciliation irrévocable ne pourra être annulée que par la main levée expresse délivrée par la Banque Populaire.</p>
                                 <p>En cas de démission de révocation de l’intéressé. La banque en sera informée immédiatement Par lettre expresse.</p>

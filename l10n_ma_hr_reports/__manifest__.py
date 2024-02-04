@@ -22,7 +22,7 @@
 {
     'name': 'Moroccan HR Reports',
     'summary': 'Moroccan HR Reports for odoo 16',
-    'version': '16.0.3.2.0',
+    'version': '16.0.5.2.0',
     'category': 'Human Resources',
     'author':'GetapPRO',
     'maintainer': 'GetapPRO',
@@ -36,6 +36,7 @@
         'reports/attest_travail_salaire_template.xml',
         'reports/attestation_domiciliation_template.xml',
         'reports/resignation_accept_template.xml',
+        'reports/attestation_titul_template.xml',
         'views/hr_contract_view.xml',
     ],
     'application': False,

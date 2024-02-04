@@ -35,6 +35,15 @@
             file="l10n_ma_hr_reports.report_domic_sal"/>
 
     <report
+            id="employee_attest_titul"
+            model="hr.employee"
+            string="Attestation de titularisation"
+            report_type="qweb-pdf"
+            groups="hr.group_hr_user"
+            name="l10n_ma_hr_reports.report_attest_titul"
+            file="l10n_ma_hr_reports.report_attest_titul"/>
+
+    <report
             id="resign_accept"
             model="hr.resignation"
             string="Acceptation de démission"
