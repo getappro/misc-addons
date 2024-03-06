@@ -230,6 +230,9 @@
                 <div id="appstore" position="attributes">
                     <attribute name="class">o_hidden</attribute>
                 </div>
+				<div id="about" position="attributes">
+                    <attribute name="class">o_hidden</attribute>
+                </div>
             </field>
         </record>
 

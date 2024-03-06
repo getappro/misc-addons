@@ -10,7 +10,7 @@
     <template id="replace_login" name="Login Layout" inherit_id="web.login_layout">
         <xpath expr="//a[@target='_blank']" position="replace">
             <a href="https://www.getap.pro" target="_blank">Powered by
-                <span>getap.pro</span>
+                <span>GetapPRO</span>
             </a>
         </xpath>
     </template>
