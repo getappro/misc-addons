@@ -22,7 +22,7 @@
 {
     'name': 'Moroccan Payroll',
     'summary': 'Moroccan Payroll for odoo 16',
-    'version': '16.0.2.11.0',
+    'version': '16.0.2.13.0',
     'category': 'Human Resources',
     'author':'GetapPRO',
     'maintainer': 'GetapPRO',
