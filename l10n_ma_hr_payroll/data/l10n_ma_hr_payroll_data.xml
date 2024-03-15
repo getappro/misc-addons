@@ -115,7 +115,7 @@ result = TJRTV + JRTV
             <field name="name">Rappel sur Salaire de Base</field>
             <field name="code">RAP</field>
             <field name="sequence">410</field>
-            <field name="category_id" ref="BASIC"/>
+            <field name="category_id" ref="hr_payroll_community.BASIC"/>
             <field name="condition_select">python</field>
             <field name="condition_python">result = inputs.RAP and inputs.RAP.amount > 0</field>
             <field name="amount_select">code</field>
