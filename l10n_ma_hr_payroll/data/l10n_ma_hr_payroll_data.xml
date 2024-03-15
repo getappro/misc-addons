@@ -92,7 +92,14 @@
             <field name="sequence">300</field>
             <field name="category_id" ref="NOCAT"/>
             <field name="amount_select">code</field>
-            <field name="amount_python_compute">result = payslip.sum('JRTV', '2023-01-01', '2023-12-31') + JRTV</field>
+            <field name="amount_python_compute">
+TJRTV = 0.0
+for slip in employee.slip_ids:
+    for line in slip.line_ids:
+        if slip.date_from.year == 2024 and line.code == "JRTV":
+           TJRTV += line.total
+result = TJRTV + JRTV
+            </field>
             <field name="appears_on_payslip" eval="False"/>
         </record>
 
