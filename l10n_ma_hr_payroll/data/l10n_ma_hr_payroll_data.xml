@@ -115,7 +115,7 @@ result = TJRTV + JRTV
             <field name="name">Rappel sur Salaire de Base</field>
             <field name="code">RAP</field>
             <field name="sequence">410</field>
-            <field name="category_id" ref="PRIMANC"/>
+            <field name="category_id" ref="BASIC"/>
             <field name="condition_select">python</field>
             <field name="condition_python">result = inputs.RAP and inputs.RAP.amount > 0</field>
             <field name="amount_select">code</field>
@@ -139,6 +139,18 @@ result = (BC*5/100) if (coef &gt;= 25) and (coef &lt;= 60) else (BC*10/100) if (
             </field>
             <field name="appears_on_payslip" eval="True"/>
             <field name="register_id" ref="hr_prime__register"/>
+        </record>
+
+        <record id="hr_payslip_rule_cp" model="hr.salary.rule">
+            <field name="name">Congé Payé</field>
+            <field name="code">CP</field>
+            <field name="sequence">410</field>
+            <field name="category_id" ref="PRINT"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = inputs.CP and inputs.CP.amount > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs.CP and inputs.CP.amount</field>
+            <field name="appears_on_payslip" eval="True"/>
         </record>
 
         <record id="hr_payslip_rule_primexcep" model="hr.salary.rule">
@@ -415,7 +427,12 @@ result = (BC*5/100) if (coef &gt;= 25) and (coef &lt;= 60) else (BC*10/100) if (
             <field name="amount_select">code</field>
             <field name="amount_python_compute">
 coef = payslip.date_from.month - 1
-FP = payslip.sum('TFRPRO', '2023-01-01', '2023-12-31')
+FP = 0.0
+for slip in employee.slip_ids:
+    for line in slip.line_ids:
+        if slip.date_from.year == 2024 and line.code == "TFRPRO":
+           FP += line.total
+result = TJRTV + JRTV
 FRPRO = SBI*0.25 if SBI >= 6500 else SBI*0.35
 result = FRPRO if (FRPRO &lt;= 2916.67) else min((((2916.67*coef)-FP)+2916.67), FRPRO) if (2916.67*coef) &gt; FP else 2916.67
             </field>
@@ -450,7 +467,13 @@ result = FRPRO if (FRPRO &lt;= 2916.67) else min((((2916.67*coef)-FP)+2916.67), 
             <field name="sequence">1700</field>
             <field name="category_id" ref="NOCAT"/>
             <field name="amount_select">code</field>
-            <field name="amount_python_compute">result = payslip.sum('SNI', '2023-01-01', '2023-12-31') + SNI</field>
+            <field name="amount_python_compute">
+TSNI = 0.0
+for slip in employee.slip_ids:
+    for line in slip.line_ids:
+        if slip.date_from.year == 2024 and line.code == "SNI":
+           TSNI += line.total
+result = TSNI + SNI</field>
             <field name="appears_on_payslip" eval="False"/>
         </record>
 
@@ -480,7 +503,13 @@ result = FRPRO if (FRPRO &lt;= 2916.67) else min((((2916.67*coef)-FP)+2916.67), 
             <field name="sequence">1730</field>
             <field name="category_id" ref="NOCAT"/>
             <field name="amount_select">code</field>
-            <field name="amount_python_compute">result = max(payslip.sum('IR', '2023-01-01', '2023-12-31'), 0)</field>
+            <field name="amount_python_compute">
+IR = 0.0
+for slip in employee.slip_ids:
+    for line in slip.line_ids:
+        if slip.date_from.year == 2024 and line.code == "IR":
+           IR += line.total
+result = max(IR, 0)</field>
             <field name="appears_on_payslip" eval="False"/>
         </record>
 
@@ -492,8 +521,14 @@ result = FRPRO if (FRPRO &lt;= 2916.67) else min((((2916.67*coef)-FP)+2916.67), 
             <field name="condition_select">python</field>
             <field name="condition_python">result= employee.dependents > 0</field>
             <field name="amount_select">code</field>
-            <field name="amount_python_compute">CFAM = min((employee.dependents*30),2160)
-result = payslip.sum('CFAM', '2023-01-01', '2023-12-31') + CFAM</field>
+            <field name="amount_python_compute">
+CFAM = min((employee.dependents*30),2160)
+TCFAM = 0.0
+for slip in employee.slip_ids:
+    for line in slip.line_ids:
+        if slip.date_from.year == 2024 and line.code == "CFAM":
+           TCFAM += line.total
+result = TCFAM + CFAM</field>
             <field name="appears_on_payslip" eval="False"/>
         </record>
 
@@ -622,7 +657,7 @@ result = payslip.sum('CFAM', '2023-01-01', '2023-12-31') + CFAM</field>
         <record id="hr_payroll_salary_structure_base" model="hr.payroll.structure">
             <field name="code">Ma-Base-</field>
             <field name="name">Structure de base paie Marocaine</field>
-            <field eval="[(6, 0, [ref('hr_payslip_rule_abs'),ref('hr_payslip_rule_jrtv'),ref('hr_payslip_rule_tjrtv'), ref('hr_payslip_rule_rap'), ref('hr_payslip_rule_primexcep'), ref('hr_payslip_rule_primastr'), ref('hr_payslip_rule_bonus'), ref('hr_payslip_rule_indemdepl'), ref('hr_payslip_rule_indemkm'),ref('hr_payslip_rule_indemtransp'),ref('hr_payslip_rule_primtournee'),ref('hr_payslip_rule_gratsocial'),ref('hr_payslip_rule_indemcaisse'),ref('hr_payslip_rule_indemrep'),ref('hr_payslip_rule_primoutil'),ref('hr_payslip_rule_primsalis'),ref('hr_payslip_rule_indemlice'), ref('hr_payslip_rule_primpan'),ref('hr_payslip_rule_primanc'),ref('hr_payslip_rule_sbi'),ref('hr_payslip_rule_cnsse'),ref('hr_payslip_rule_amo'),ref('hr_payslip_rule_cimre'),ref('hr_payslip_rule_totded'),ref('hr_payslip_rule_tfrpro'),ref('hr_payslip_rule_epret'),ref('hr_payslip_rule_sni'),ref('hr_payslip_rule_baseir'),ref('hr_payslip_rule_trimp'),ref('hr_payslip_rule_sad'),ref('hr_payslip_rule_irant'),ref('hr_payslip_rule_tcfam'),ref('hr_payslip_rule_irbrut'),ref('hr_payslip_rule_ir'),ref('hr_payslip_rule_contrib_social'),ref('hr_payslip_rule_cnssp'),ref('hr_payslip_rule_allfp'),ref('hr_payslip_rule_formp'),ref('hr_payslip_rule_amop'),ref('hr_payslip_rule_cimrp'),ref('hr_payslip_rule_total'),])]"
+            <field eval="[(6, 0, [ref('hr_payslip_rule_abs'),ref('hr_payslip_rule_jrtv'),ref('hr_payslip_rule_tjrtv'), ref('hr_payslip_rule_rap'), ref('hr_payslip_rule_cp'), ref('hr_payslip_rule_primexcep'), ref('hr_payslip_rule_primastr'), ref('hr_payslip_rule_bonus'), ref('hr_payslip_rule_indemdepl'), ref('hr_payslip_rule_indemkm'),ref('hr_payslip_rule_indemtransp'),ref('hr_payslip_rule_primtournee'),ref('hr_payslip_rule_gratsocial'),ref('hr_payslip_rule_indemcaisse'),ref('hr_payslip_rule_indemrep'),ref('hr_payslip_rule_primoutil'),ref('hr_payslip_rule_primsalis'),ref('hr_payslip_rule_indemlice'), ref('hr_payslip_rule_primpan'),ref('hr_payslip_rule_primanc'),ref('hr_payslip_rule_sbi'),ref('hr_payslip_rule_cnsse'),ref('hr_payslip_rule_amo'),ref('hr_payslip_rule_cimre'),ref('hr_payslip_rule_totded'),ref('hr_payslip_rule_tfrpro'),ref('hr_payslip_rule_epret'),ref('hr_payslip_rule_sni'),ref('hr_payslip_rule_baseir'),ref('hr_payslip_rule_trimp'),ref('hr_payslip_rule_sad'),ref('hr_payslip_rule_irant'),ref('hr_payslip_rule_tcfam'),ref('hr_payslip_rule_irbrut'),ref('hr_payslip_rule_ir'),ref('hr_payslip_rule_contrib_social'),ref('hr_payslip_rule_cnssp'),ref('hr_payslip_rule_allfp'),ref('hr_payslip_rule_formp'),ref('hr_payslip_rule_amop'),ref('hr_payslip_rule_cimrp'),ref('hr_payslip_rule_total'),])]"
                    name="rule_ids"/>
             <field name="parent_id" ref="hr_payroll_community.structure_base"/>
             <field name="company_id" ref="base.main_company"/>
@@ -641,6 +676,12 @@ result = payslip.sum('CFAM', '2023-01-01', '2023-12-31') + CFAM</field>
             <field name="code">RAP</field>
             <field name="name">Rappel sur Salaire de Base</field>
             <field name="input_id" ref="hr_payslip_rule_rap"/>
+        </record>
+        
+         <record id="hr_rule_input_cp" model="hr.rule.input">
+            <field name="code">CP</field>
+            <field name="name">Congé Payé</field>
+            <field name="input_id" ref="hr_payslip_rule_cp"/>
         </record>
 
         <record id="hr_rule_input_primexcep" model="hr.rule.input">
